@@ -1,0 +1,47 @@
+name: Air-Gap Security Invariant Guard
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  verify-airgap:
+    name: Zero-Source-Code & Privacy Invariant Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Verify Zero Source Code Files (.rs, .c, .cpp)
+        run: |
+          echo "🔍 Scanning for unauthorized source code files in satellite showcase..."
+          FORBIDDEN_FILES=$(find . -type f \( -name "*.rs" -o -name "*.c" -o -name "*.cpp" -o -name "*.rlib" -o -name "*.so" \))
+          if [ -n "$FORBIDDEN_FILES" ]; then
+            echo "❌ AIR-GAP SECURITY VIOLATION: Source code files detected:"
+            echo "$FORBIDDEN_FILES"
+            exit 1
+          fi
+          echo "✅ 0 source code files found."
+
+      - name: Verify Zero Developer Private Paths
+        run: |
+          echo "🔍 Scanning for private developer filesystem paths..."
+          if grep -rnE "/Users/|C:\\\\Users\\\\" --exclude-dir=".git" --exclude-dir=".github" .; then
+            echo "❌ PRIVACY VIOLATION: Private developer paths detected in repository."
+            exit 1
+          fi
+          echo "✅ 0 private paths found."
+
+      - name: Verify Media Asset Size Constraints
+        run: |
+          echo "🔍 Verifying GIF file size <= 12 MB..."
+          for gif in $(find . -type f -name "*.gif"); do
+            SIZE_MB=$(du -m "$gif" | cut -f1)
+            if [ "$SIZE_MB" -gt 12 ]; then
+              echo "❌ ASSET ENVELOPE EXCEEDED: $gif is ${SIZE_MB}MB (max 12MB)"
+              exit 1
+            fi
+            echo "✅ $gif is ${SIZE_MB}MB (compliant)"
+          done

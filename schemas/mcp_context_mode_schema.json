@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SpatiotemporalEngineMCPContextModeSchema",
+  "description": "Formal JSON Schema for the 25 Model Context Protocol (MCP) Context-Mode Tools in Spatiotemporal Semantic Engine",
+  "type": "object",
+  "properties": {
+    "protocol_version": {
+      "type": "string",
+      "const": "2024-11-05"
+    },
+    "engine_name": {
+      "type": "string",
+      "const": "spatiotemporal-semantic-mcp-engine"
+    },
+    "execution_mode": {
+      "type": "string",
+      "enum": ["context-mode", "high-throughput-probe"]
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/McpToolDefinition"
+      }
+    }
+  },
+  "required": ["protocol_version", "engine_name", "execution_mode", "tools"],
+  "$defs": {
+    "McpToolDefinition": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string",
+          "enum": ["spatial_kinematic", "biometric_rf", "neuro_symbolic_governance", "telemetry_health"]
+        },
+        "inputSchema": {
+          "type": "object"
+        },
+        "expected_latency_us": {
+          "type": "integer"
+        },
+        "max_token_payload": {
+          "type": "integer"
+        }
+      },
+      "required": ["name", "description", "domain", "inputSchema", "expected_latency_us", "max_token_payload"]
+    }
+  }
+}

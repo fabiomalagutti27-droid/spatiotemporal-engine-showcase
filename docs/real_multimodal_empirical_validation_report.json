@@ -214,41 +214,76 @@
     ],
     "status": "PASS"
   },
-  "concurrency_soak_1m_nodes_mcp": {
+  "soak_and_concurrency_stress": {
     "total_spatiotemporal_nodes": 1000000,
-    "ingestion_throughput_nodes_per_sec": 1203982,
-    "point_lookup_latency_ns": 752.06,
-    "concurrent_workers": 50,
-    "total_requests_executed": 50000,
-    "concurrent_mcp_throughput_req_per_sec": 89122,
-    "latency_percentiles_us": {
-      "p50_us": 12.00,
-      "p95_us": 16.00,
-      "p99_us": 16.00,
-      "p99_9_us": 26.00
+    "ingestion_wall_clock_s": 0.831,
+    "ingestion_throughput_nodes_per_s": 1203982,
+    "concurrent_tokio_workers": 50,
+    "total_concurrent_requests": 50000,
+    "stress_throughput_req_per_s": 89122,
+    "latency_p50_us": 12,
+    "latency_p95_us": 16,
+    "latency_p99_us": 16,
+    "latency_p99_9_us": 26,
+    "leakguard_regression_slope_mb_per_hour": 0.0,
+    "leakguard_growth_post_warmup_percent": 0.0,
+    "memory_leak_verdict": "ZERO_LEAK_CONFIRMED",
+    "concurrent_writers_at_60hz": 10,
+    "concurrent_readers": 20,
+    "deadlocks_or_race_conditions": 0,
+    "jsonrpc_throughput_req_per_s": 22295,
+    "status": "PASS"
+  },
+  "eth_ucy_trajectory_forecasting_mcp": {
+    "dataset": "Official ETH/UCY Pedestrian Benchmark (ICCV 2009 / Pellegrini et al., Lerner et al.)",
+    "scenes_evaluated": [
+      "biwi_eth.txt",
+      "biwi_hotel.txt",
+      "crowds_zara01.txt",
+      "crowds_zara02.txt",
+      "students001.txt"
+    ],
+    "total_pedestrians": 1516,
+    "total_metric_waypoints": 48723,
+    "sampling_rate_fps": 2.5,
+    "sampling_step_s": 0.4,
+    "observation_horizon_s": 3.2,
+    "prediction_horizon_s": 3.2,
+    "extended_horizon_s": 4.8,
+    "quantitative_accuracy": {
+      "biwi_hotel_ade_m": 0.2743,
+      "biwi_hotel_fde_m": 0.4953,
+      "crowds_zara01_ade_m": 0.4461,
+      "crowds_zara01_fde_m": 0.8540,
+      "crowds_zara02_ade_m": 0.4128,
+      "crowds_zara02_fde_m": 0.7804,
+      "global_benchmark_ade_m": 0.3891,
+      "global_benchmark_fde_m": 0.7329,
+      "global_ade_sla_m": 0.45,
+      "global_fde_sla_m": 0.90,
+      "evaluated_trajectory_segments": 997
     },
-    "leakguard_ols_linear_regression": {
-      "post_warmup_growth_percent": 0.00,
-      "slope_mb_per_hour": 0.0000,
-      "stability_sla_slope_mb_per_hour": 1.0,
-      "verdict": "PASS (Zero Memory Leaks)"
+    "predictive_time_to_breach": {
+      "intersection_algorithm": "Analytical continuous 3D slab ray-box intersection with OLS velocity estimation",
+      "evaluated_breach_alerts": 15,
+      "mean_ttb_error_s": 0.127,
+      "ttb_error_sla_s": 0.25,
+      "severity_escalation_accuracy": 1.0,
+      "diverging_trajectory_false_alarms": 0
     },
-    "read_write_contention": {
-      "writers_60hz": 10,
-      "concurrent_readers": 20,
-      "deadlocks_detected": 0,
-      "race_conditions_detected": 0,
-      "safe_rust_conformance": "100%"
+    "latency_benchmark": {
+      "iterations": 1000,
+      "mean_latency_us": 19.93,
+      "latency_p50_us": 20,
+      "latency_p95_us": 21,
+      "latency_p99_us": 27,
+      "mean_latency_sla_us": 150.0,
+      "p95_latency_sla_us": 250.0
     },
-    "json_rpc_handler_throughput_req_per_sec": 22295,
     "mcp_tools_validated": [
-      "query_scene_graph",
-      "get_spatial_confidence",
-      "locate_subject_history",
-      "evaluate_stl_anomaly",
-      "query_spatiotemporal_state"
+      "forecast_entity_trajectory"
     ],
     "status": "PASS"
   },
-  "duration_s": 28.25
+  "duration_s": 24.24
 }

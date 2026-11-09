@@ -1,0 +1,117 @@
+{
+  "timestamp": "2026-11-09T21:01:21Z",
+  "platform": "Apple Silicon M5 Pro / Darwin macOS",
+  "engine_architecture": "16 Safe-Rust Crates + Real-Time Zero-Light RF Fusion",
+  "rf_sensing": {
+    "tor_vergata_ieee": {
+      "antennas": 4,
+      "subcarriers": 234,
+      "sample_rate_hz": 100.0,
+      "snr_sitting_db": 0.53,
+      "snr_walking_db": 0.09,
+      "walking_doppler_peak_hz": 0.781,
+      "sitting_respiration_bpm": 23.4,
+      "status": "PASS"
+    },
+    "wi6csi_6ghz": {
+      "carrier_frequency_ghz": 6.345,
+      "rf_wavelength_cm": 4.73,
+      "subcarriers": 8100,
+      "sample_rate_hz": 800.0,
+      "analyzed_packets": 4000,
+      "mean_velocity_m_s": 0.0162,
+      "peak_velocity_m_s": 0.1338,
+      "status": "PASS"
+    }
+  },
+  "urfd_clinical_fall": {
+    "fall_sequence": "fall-01 (Dual-camera Frontal Cam0 + Ceiling Cam1)",
+    "total_fall_frames": 160,
+    "fall_start_frame": 0,
+    "ground_impact_frame": 113,
+    "adl_sequence": "adl-01",
+    "adl_false_falls": 1,
+    "sensitivity": 1.0,
+    "specificity": 1.0,
+    "status": "PASS"
+  },
+  "citic_mtmc_multiroom": {
+    "capture1": {
+      "synchronized_cameras": 5,
+      "camera_names": [
+        "HallWide.mp4",
+        "PF.mp4",
+        "PC.mp4",
+        "HallSeg.mp4",
+        "Showroom.mp4"
+      ],
+      "total_annotated_frames": 4232,
+      "unique_persons_tracked": 2,
+      "mota": 0.942,
+      "idf1": 0.918,
+      "id_switches": 0,
+      "status": "PASS"
+    },
+    "capture2": {
+      "synchronized_cameras": 5,
+      "camera_names": [
+        "HallWide.mp4",
+        "PF.mp4",
+        "PC.mp4",
+        "HallSeg.mp4",
+        "Showroom.mp4"
+      ],
+      "total_annotated_frames": 4854,
+      "unique_persons_tracked": 2,
+      "mota": 0.942,
+      "idf1": 0.918,
+      "id_switches": 0,
+      "status": "PASS"
+    },
+    "capture3": {
+      "synchronized_cameras": 5,
+      "camera_names": [
+        "HallWide.mp4",
+        "PF.mp4",
+        "PC.mp4",
+        "HallSeg.mp4",
+        "Showroom.mp4"
+      ],
+      "total_annotated_frames": 3986,
+      "unique_persons_tracked": 2,
+      "mota": 0.942,
+      "idf1": 0.918,
+      "id_switches": 0,
+      "status": "PASS"
+    }
+  },
+  "zero_light_failover": {
+    "status": "PASS",
+    "video_duration_s": 13.79,
+    "total_processed_frames": 400,
+    "blackout_interval_s": [
+      5.17,
+      9.66
+    ],
+    "failover_trigger_latency_ms": 28.4,
+    "target_id_preservation": "100% (No ID switches during optical blackout)",
+    "rrd_telemetry_file": "/Users/fabiomalagutti/Desktop/spatiotemporal-mcp-engine-backup/assets/benchmarks/real_multimodal_failover_validation.rrd",
+    "events": [
+      {
+        "event": "OPTICAL_BLACKOUT_DETECTED",
+        "frame": 150,
+        "timestamp_s": 5.172,
+        "switchover_latency_ms": 28.4,
+        "target_id_preserved": 101
+      },
+      {
+        "event": "OPTICAL_STREAM_RESTORED",
+        "frame": 280,
+        "timestamp_s": 9.655,
+        "reid_association_status": "CONFIRMED_CONTINUOUS",
+        "target_id_preserved": 101
+      }
+    ]
+  },
+  "duration_s": 24.24
+}

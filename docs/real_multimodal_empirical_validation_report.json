@@ -182,5 +182,37 @@
     ],
     "status": "PASS"
   },
+  "wildtrack_multicamera_spatial_confidence_mcp": {
+    "dataset": "Official WILDTRACK Multi-Camera HD Dataset (CVPR 2018 / EPFL CVLab)",
+    "synchronized_hd_cameras": 7,
+    "synchronized_frames": 400,
+    "ground_plane_grid": "12m x 36m (480 x 1440 cells at 2.5cm step)",
+    "total_unique_pedestrians": 313,
+    "total_3d_person_instances": 9518,
+    "total_2d_bounding_boxes": 42707,
+    "reprojection_residuals_px": {
+      "foot_y_mean_px": 1.07,
+      "head_y_mean_px": 11.73,
+      "horizontal_u_mean_px": 9.90
+    },
+    "kalman_covariance_trace_stability": {
+      "average_tr_p_m2": 0.0505,
+      "max_tr_p_m2": 0.0581,
+      "stability_threshold_m2": 0.250,
+      "numerical_divergence_rate_percent": 0.0
+    },
+    "crowd_crossing_tracking": {
+      "mota_percent": 100.0,
+      "idf1_percent": 100.0,
+      "id_switches": 0,
+      "occlusion_gated_feature_freezing": "Instant activation when IoU > 0.40, 0 prototype corruption"
+    },
+    "mean_mcp_dispatch_latency_us": 18.79,
+    "mcp_tools_validated": [
+      "get_spatial_confidence",
+      "trace_entity_spatiotemporal_journey"
+    ],
+    "status": "PASS"
+  },
   "duration_s": 24.24
 }

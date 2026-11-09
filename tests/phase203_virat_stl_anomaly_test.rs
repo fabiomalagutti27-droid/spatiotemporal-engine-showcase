@@ -500,10 +500,9 @@ async fn test_phase203_virat_large_scale_quantitative_benchmark() {
         let mut max_ts = 0u64;
         let mut min_ts = u64::MAX;
 
-        // Group waypoints by entity and populate trajectories
+        // Ingest waypoints through standard scene graph pipeline APIs (upsert_entity + record_waypoint)
         {
             let mut sg = scene_graph.write();
-            let mut registered = std::collections::HashSet::new();
             for wp in &scenario.waypoints {
                 if wp.timestamp_ns > max_ts {
                     max_ts = wp.timestamp_ns;
@@ -512,36 +511,32 @@ async fn test_phase203_virat_large_scale_quantitative_benchmark() {
                     min_ts = wp.timestamp_ns;
                 }
 
-                if registered.insert(wp.entity_id) {
-                    sg.upsert_entity(
-                        wp.entity_id,
-                        &wp.label,
-                        Point3D::new(wp.pos[0], wp.pos[1], wp.pos[2]),
-                        wp.timestamp_ns,
-                        wp.label.contains("vehicle"),
-                    );
-                    // Clear initial waypoint inserted by upsert_entity to preserve exact ground truth stream
-                    if let Some(h) = sg.entity_history_mut().get_mut(&wp.entity_id) {
-                        h.clear();
-                    }
-                }
+                sg.upsert_entity(
+                    wp.entity_id,
+                    &wp.label,
+                    Point3D::new(wp.pos[0], wp.pos[1], wp.pos[2]),
+                    wp.timestamp_ns,
+                    wp.label.contains("vehicle"),
+                );
 
-                let hist = sg.entity_history_mut().entry(wp.entity_id).or_default();
-                hist.push(TrajectoryWaypoint {
-                    timestamp_ns: wp.timestamp_ns,
-                    stream_id: "cam_virat_eval".to_string(),
-                    position: Point3D::new(wp.pos[0], wp.pos[1], wp.pos[2]),
-                    velocity_mps: Some(wp.velocity_mps),
-                    motion_state: if wp.velocity_mps < 0.1 {
-                        MotionState::Stationary
-                    } else {
-                        MotionState::Moving
+                sg.record_waypoint(
+                    wp.entity_id,
+                    TrajectoryWaypoint {
+                        timestamp_ns: wp.timestamp_ns,
+                        stream_id: "cam_virat_eval".to_string(),
+                        position: Point3D::new(wp.pos[0], wp.pos[1], wp.pos[2]),
+                        velocity_mps: Some(wp.velocity_mps),
+                        motion_state: if wp.velocity_mps < 0.1 {
+                            MotionState::Stationary
+                        } else {
+                            MotionState::Moving
+                        },
+                        bounding_box: BoundingBox2D::new(0.1, 0.1, 0.3, 0.8).unwrap(),
+                        zone_id: wp.zone_id.clone(),
+                        supported_by_entity: None,
+                        reference_handle: format!("handle://frame/cam_virat/{ts}", ts = wp.timestamp_ns),
                     },
-                    bounding_box: BoundingBox2D::new(0.1, 0.1, 0.3, 0.8).unwrap(),
-                    zone_id: wp.zone_id.clone(),
-                    supported_by_entity: None,
-                    reference_handle: format!("handle://frame/cam_virat/{ts}", ts = wp.timestamp_ns),
-                });
+                );
             }
         }
 

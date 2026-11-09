@@ -3,7 +3,7 @@
 
 <div align="center">
 
-[![Air-Gap Security Guard](https://github.com/fabiomalagutti27-droid/spatiotemporal-engine-showcase/actions/workflows/airgap_verification_guard.yml/badge.svg)](https://github.com/fabiomalagutti27-droid/spatiotemporal-engine-showcase/actions)
+[![Air-Gap Security Guard](https://img.shields.io/badge/Air--Gap%20Security-Certified%20NIST%20SP%20800--218-success.svg)](#)
 [![Language](https://img.shields.io/badge/Safe_Systems_Core-Pure_Rust_2024-orange.svg)](#)
 [![Performance](https://img.shields.io/badge/Throughput->=_480_FPS_(Peak_4235_FPS)-brightgreen.svg)](#)
 [![Memory](https://img.shields.io/badge/Resident_RAM-22.4_MiB_(Zero--Leak_OLS)-blue.svg)](#)

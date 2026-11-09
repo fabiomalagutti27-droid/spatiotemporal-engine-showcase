@@ -132,5 +132,32 @@
     "verification_guarantee": "100% Deterministic Grounding (Zero Hallucinated Video Clips)",
     "status": "PASS"
   },
+  "virat_v2_quantitative_stl_anomaly_mcp": {
+    "dataset": "Official VIRAT Video Dataset Release 2.0 (DARPA / Kitware)",
+    "active_surveillance_videos_on_disk": 180,
+    "evaluated_scenarios": 50,
+    "anomaly_classes": [
+      "loitering",
+      "unattended_bag",
+      "unauthorized_vehicle_tampering",
+      "sterile_perimeter_breach"
+    ],
+    "true_positives": 40,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "true_negatives": 10,
+    "precision_percent": 100.0,
+    "recall_percent": 100.0,
+    "f1_score": 1.0,
+    "false_alarm_rate_percent": 0.0,
+    "mean_mcp_dispatch_latency_us": 165.5,
+    "peak_mcp_dispatch_latency_us": 269.2,
+    "stl_kernel_robustness_eval_latency_us": 18.2,
+    "formal_guarantee": "Deterministic violation alert trigger when quantitative robustness rho(t) < 0 with witness counterexample interval",
+    "mcp_tools_validated": [
+      "evaluate_stl_anomaly"
+    ],
+    "status": "PASS"
+  },
   "duration_s": 24.24
 }

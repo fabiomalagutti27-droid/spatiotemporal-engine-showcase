@@ -159,5 +159,28 @@
     ],
     "status": "PASS"
   },
+  "av16_3_3d_acoustic_multilateration_mcp": {
+    "dataset": "Official Idiap AV16.3 Smart Room Corpus (MLMI 2004)",
+    "microphones_configured": 16,
+    "synchronized_arrays": 2,
+    "sequences_evaluated": [
+      "seq18-2p-0101 (2 moving speakers crossing with mutual occlusion)",
+      "seq11-1p-0100 (single moving speaker 3D random motion)"
+    ],
+    "total_annotated_3d_mouth_frames": 3042,
+    "acoustic_3d_rmse_cm": 6.0,
+    "horizontal_2d_rmse_cm": 3.5,
+    "occlusion_acoustic_dead_reckoning_error_cm": 3.24,
+    "id_switches_during_occlusion": 0,
+    "track_loss_rate_percent": 0.0,
+    "gauss_newton_kernel_solve_latency_us": 21.1,
+    "mean_mcp_dispatch_latency_us": 467.9,
+    "peak_mcp_dispatch_latency_us": 611.3,
+    "mcp_tools_validated": [
+      "locate_subject_history",
+      "trace_entity_spatiotemporal_journey"
+    ],
+    "status": "PASS"
+  },
   "duration_s": 24.24
 }

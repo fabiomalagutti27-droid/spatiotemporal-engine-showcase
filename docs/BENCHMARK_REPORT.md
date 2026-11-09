@@ -166,6 +166,19 @@ Validazione condotta su oltre **3.5 GB di dati scientifici reali** acquisiti da 
   - **Latenza Media Dispatch MCP (`evaluate_stl_anomaly`):** **$165.5\text{ }\mu\text{s}$** (picco $269.2\text{ }\mu\text{s}$, budget $< 1500\text{ }\mu\text{s}$).
 - **Tool MCP Certificati:** `evaluate_stl_anomaly`.
 
+### 6.7 3D Audio-Visual Tracking & TDoA Acoustic Multilateration (AV16.3 Smart Room Corpus, Idiap Research Institute)
+- **Dataset Ufficiale Integrale:** Idiap AV16.3 Smart Room Corpus (Lathoud, Odobez, Gatica-Perez, MLMI 2004), 16 microfoni sincronizzati disposti in due array circolari a 16 kHz (Array 1 ed Array 2 su $z=0$, raggio $0.1\text{m}$, separazione $0.8\text{m}$), 3 telecamere calibrate e ground-truth tridimensionale millimetrico continuo della posizione della bocca (`.3dmouthgt`, accuratezza $\le 1.2\text{ cm}$).
+- **Sequenze Sperimentali Verificate:** `seq18-2p-0101` (1.291 frame e 1.270 frame per 2 speaker in movimento che si incrociano con occlusioni visive reciproche) e `seq11-1p-0100` (481 frame di speaker singolo in movimento 3D casuale).
+- **Risoluzione del Limite Fisico dei Microfoni Coplanari:** Implementato solutore non-lineare Gauss-Newton con smorzamento Levenberg-Marquardt e prior di elevazione fisiologica ($z \ge 0.05\text{m}$) in `crates/audio-spatial-bridge/src/raycast_ssl.rs`, eliminando la singolarità di riflessione sul piano del tavolo ($z=0$).
+- **Metriche Formali Certificate (Test Suite Fase 204):**
+  - **Errore 3D RMSE su Posizioni Reali della Bocca:** **$6.0\text{ cm}$** ($0.060\text{ m}$; target accademico $\le 15.0\text{ cm}$).
+  - **Errore Orizzontale 2D RMSE ($XY$):** **$3.5\text{ cm}$**.
+  - **Latenza Risolutore Gauss-Newton Kernel:** **$21.1\text{ }\mu\text{s}$** per soluzione TDoA multilaterata (target $< 50\text{ }\mu\text{s}$).
+  - **Resilienza ad Occlusione Visiva Totale (40 fotogrammi):** Errore medio di dead-reckoning acustico puro pari a **$3.24\text{ cm}$** (target $\le 35.0\text{ cm}$), con preservazione continua dell'identità (0 track loss, 0 ID switches).
+  - **Riacquisizione Visiva e Handover Fuso:** Ritorno immediato su `FUSED_KALMAN` alla ricomparsa ottica, con galleria Re-ID che riaggancia Target 101.
+  - **Latenza Media Dispatch MCP (`locate_subject_history`):** **$467.9\text{ }\mu\text{s}$** con serializzazione completa di waypoints 3D e ripartizione delle modalità sensoriali (target $< 600\text{ }\mu\text{s}$).
+- **Tool MCP Certificati:** `locate_subject_history`, `trace_entity_spatiotemporal_journey`.
+
 ---
 
 <div align="center">

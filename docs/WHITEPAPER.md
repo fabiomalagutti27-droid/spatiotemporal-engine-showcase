@@ -4,7 +4,7 @@
 **Systems QA & Security Co-Architect:** Alessandro  
 **Publication Date:** November 2026  
 **Document Version:** 2.4.0 (Enterprise Architecture Whitepaper)  
-**Target Alignment:** European Space Agency (ESA) Student Internships 2026 — ESOC (ID 32: Mission Operations & Space Situational Awareness) & ESTEC (ID 31: Flight Software Systems & Multimodal Autonomous Robotics)  
+**Domain Application:** Mission-Critical Aerospace Systems, Autonomous Robotics & Space Situational Awareness  
 **Aerospace Standards Compliance:** ECSS-E-ST-40C (Software Engineering), ECSS-Q-ST-80C (Software Product Assurance Category A/B)
 
 ---
@@ -173,17 +173,17 @@ To demonstrate true platform independence and scalability, empirical benchmarks 
 
 ---
 
-## 6. Aerospace & European Space Agency (ESA) Applicability
+## 6. Mission-Critical Aerospace & Space Systems Applicability
 
-The architecture directly addresses mission-critical technical challenges across two core operational directorates of the **European Space Agency (ESA)**:
+The architecture directly addresses mission-critical technical challenges across core space engineering domains:
 
-### 6.1 ESA ESOC (Darmstadt) — Mission Operations & Space Situational Awareness (ID 32)
-- **Multi-Sensor Correlation:** The mathematical problem of maintaining human tracklet invariance across disjoint camera frustums is functionally isomorphic to correlating multi-station optical telescope observations with phased-array radar tracks for orbital space debris tracking.
-- **Ground Segment Telemetry Throughput:** The engine's capacity to process $\ge 480\text{ FPS}$ at sub-millisecond latencies provides a natural fit for European Ground Systems - Common Core (EGS-CC) telemetry streams.
+### 6.1 Ground Segment Operations & Space Situational Awareness (SSA)
+- **Multi-Sensor Correlation:** The mathematical problem of maintaining tracklet invariance across disjoint camera frustums is functionally isomorphic to correlating multi-station optical telescope observations with phased-array radar tracks for orbital space debris tracking.
+- **Telemetry Stream Throughput:** The engine's capacity to process $\ge 480\text{ FPS}$ at sub-millisecond latencies provides a natural fit for high-throughput space mission telemetry streams.
 
-### 6.2 ESA ESTEC (Noordwijk) — Flight Software Systems (ID 31)
-- **Crustacea in Space Alignment:** The pure Rust implementation with **Zero `.unwrap()` / Zero `.expect()`** satisfies the strict software product assurance requirements of **ECSS-E-ST-40C** and **ECSS-Q-ST-80C** Category A/B flight systems.
-- **Extreme Resource Efficiency:** Operating with a peak footprint of $22.4\text{ MiB}$ RSS RAM enables deployment on radiation-hardened spaceborne microprocessors (SPARC/LEON, ARM Cortex-R52, or RISC-V) for autonomous rover navigation and habitat proximity operations.
+### 6.2 Flight Software Systems & Autonomous Habitat Robotics
+- **Rust in Space & Formal Assurance:** The pure Rust implementation with **Zero `.unwrap()` / Zero `.expect()`** satisfies the strict software product assurance requirements of **ECSS-E-ST-40C** and **ECSS-Q-ST-80C** Category A/B flight systems.
+- **Extreme Resource Efficiency:** Operating with a peak footprint of $22.4\text{ MiB}$ RSS RAM enables deployment on radiation-hardened spaceborne microprocessors (SPARC/LEON, ARM Cortex-R52, or RISC-V) for autonomous rover navigation, intra-vehicular habitat monitoring, and proximity operations.
 
 ---
 

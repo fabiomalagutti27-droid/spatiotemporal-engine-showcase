@@ -31,7 +31,7 @@ Developed as a private high-technology R&D initiative in memory-safe systems pro
 |   - Dynamic Spatiotemporal Scene Graph, R*-tree/Octree indexing, and LZ4-Dict WAL compactor.           |
 |   - In-process Model Context Protocol (MCP) Context-Mode JSON-RPC 2.0 probe dispatcher.               |
 |   - Zero-copy UMA memory pipeline (Apple VideoToolbox, NVDEC, Apache Arrow IPC).                       |
-|   - Authoring of the Technical Architecture Whitepaper and ESA Career Dossiers.                       |
+|   - Authoring of the Technical Architecture Whitepaper and Systems Engineering Dossiers.              |
 +--------------------------------------------------------------------------------------------------------+
 | ALESSANDRO — SYSTEMS QA, SECURITY CO-ARCHITECT & HARDWARE LEAD                                         |
 +--------------------------------------------------------------------------------------------------------+
@@ -61,7 +61,7 @@ Developed as a private high-technology R&D initiative in memory-safe systems pro
    `https://github.com/fabiomalagutti27-droid/spatiotemporal-engine-showcase`.
 
 3. **Institutional & Recruitment Review Protocol:**  
-   Both authors grant explicit permission for this technical portfolio and its empirical metrics to be evaluated by academic committees, hiring bodies, and space agency review boards (specifically the **European Space Agency — ESA ESOC and ESTEC** selection panels). Live interactive demonstrations and private technical code inspections are available upon formal request under confidential review conditions.
+   Both authors grant explicit permission for this technical portfolio and its empirical metrics to be evaluated by academic committees, hiring bodies, and technical review boards. Live interactive demonstrations and private technical code inspections are available upon formal request under confidential review conditions.
 
 ---
 

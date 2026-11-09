@@ -15,7 +15,7 @@
 
 **Lead Systems Architect:** **Fabio Malagutti** ([fabiomalagutti27@gmail.com](mailto:fabiomalagutti27@gmail.com))  
 **Systems QA & Security Co-Architect:** **Alessandro** (`@MiServeRDC`)  
-**Target Alignment:** European Space Agency (ESA) Student Internships 2026 — ESOC (ID 32) & ESTEC (ID 31)
+**Domain Focus:** Mission-Critical Aerospace, Autonomous Robotics & Spatial Digital Twins
 
 <br/>
 
@@ -36,7 +36,7 @@ The **Spatiotemporal Semantic MCP Engine** is a high-performance, real-time auto
 1. **Analytical Projective Geometry:** Formulates analytical $O(1)$ dual-homographies ($\mathbf{H}_{\text{ground}}, \mathbf{H}_{\text{head}}$) and calibrated pinhole projections $[\mathbf{K} \mid \mathbf{R}, \mathbf{t}]$ to project 2D detections into unified 3D metric coordinates, resolving severe mutual occlusions without deep monocular depth networks.
 2. **Contactless Non-Visual Vital Sensing:** Processes 54-subcarrier OFDM Channel State Information (CSI) from Wi-Fi 6 nodes via Hampel filtering and Doppler STFT, tracking respiratory (16.2 RPM) and cardiac vitals (71.8 BPM) through walls and darkness.
 3. **Sub-Millisecond Model Context Protocol (MCP):** Exposes 25 Context-Mode JSON-RPC 2.0 tools to AI agents (Claude, Antigravity, Cursor) with a 96% token reduction ($142\text{ tokens}$ vs $4200\text{ tokens}$) and sub-millisecond execution latencies.
-4. **Mission-Critical Software Assurance:** Written with **zero `.unwrap()` / zero `.expect()`** in production code paths, strictly satisfying **ECSS-Q-ST-80C Category A/B** and **ECSS-E-ST-40C** European Space Agency space software standards.
+4. **Mission-Critical Software Assurance:** Written with **zero `.unwrap()` / zero `.expect()`** in production code paths, strictly satisfying **ECSS-Q-ST-80C Category A/B** and **ECSS-E-ST-40C** mission-critical aerospace space software engineering standards.
 
 ---
 
@@ -100,8 +100,8 @@ The engine was evaluated across 4 heterogeneous hardware tiers under identical m
 
 1. **Proprietary Monorepo Status:**  
    The underlying 16-crate Safe Rust systems codebase (~150,000 lines of code) is proprietary commercial intellectual property. All commercial rights are reserved by the authors.
-2. **Institutional & Space Agency Review Protocol:**  
-   Both authors grant explicit permission for this technical showcase, its empirical telemetry, and architectural artifacts to be evaluated by academic selection committees and space agency review boards (specifically the **European Space Agency — ESA ESOC and ESTEC** selection panels). Live interactive demonstrations and private technical code inspections are available upon formal request under confidential review conditions.
+2. **Institutional & Technical Review Protocol:**  
+   Both authors grant explicit permission for this technical showcase, its empirical telemetry, and architectural artifacts to be evaluated by academic selection committees, industry technical boards, and aerospace research evaluators. Live interactive demonstrations and private technical code inspections are available upon formal request under confidential review conditions.
 3. **Air-Gap Security Compliance:**  
    This repository is automatically validated by continuous integration workflows enforcing strict **NIST SP 800-218** isolation invariants (zero private source code leaks, zero developer paths, zero unencrypted credentials).
 

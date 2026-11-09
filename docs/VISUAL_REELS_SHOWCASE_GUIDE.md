@@ -2,7 +2,7 @@
 
 **Spatiotemporal Semantic MCP Engine — Blocco AT (Fasi 176–178)**  
 *Authors: Fabio Malagutti (Lead Architect) & Alessandro (Systems QA & Security)*  
-*Prepared for: ESA Student Internships 2026 (ESOC Darmstadt ID 32 & ESTEC Noordwijk ID 31)*
+*Architecture: High-Performance Multi-Sensor Fusion & Aerospace Robotics*
 
 ---
 
@@ -29,7 +29,7 @@ While the 45-second Master Showcase provides an overarching proof-of-life across
 
 ### Reel 1: Multi-Camera Epipolar IPM & Cross-Camera Re-ID (15.0s)
 
-- **Target Audience:** Photogrammetry & Computer Vision Engineers, Space Situational Awareness (SSA) Optical Tracking (ESA ESOC).
+- **Target Audience:** Photogrammetry & Computer Vision Engineers, Space Situational Awareness (SSA) Optical Tracking.
 - **Core Narrative:** Demonstrates how analytical dual-homographies ($H_{\text{ground}}, H_{\text{head}}$) and calibrated pinhole projection matrices ($[K|R, t]$) eliminate perspective distortion, map 2D bounding boxes to 3D metric ground planes, and maintain continuous tracklet identity across overlapping camera frustums without ID switches.
 - **Visuals:** Split-view camera frustums (`cam_wildtrack_c1`, `cam_wildtrack_c2`, `cam_epfl_terrace`) looking into a synchronized 3D ground plane. Target `person_42_reid` traverses camera boundaries; at $t = 5.0\text{s}..9.0\text{s}$, the target moves through the overlap handover zone observed simultaneously by both cameras with zero identity switch ($0\text{ ID switches}$, cosine similarity $0.948$).
 - **CLI Command:**
@@ -52,7 +52,7 @@ While the 45-second Master Showcase provides an overarching proof-of-life across
 
 ### Reel 2: Non-Visual Sensing & Contactless Biometrics (15.0s)
 
-- **Target Audience:** Autonomous Habitat Robotics, Space Life-Support Systems & Astronaut Monitoring (ESA ESTEC TEC-EDS).
+- **Target Audience:** Autonomous Habitat Robotics, Space Life-Support Systems & Environmental Biometric Monitoring.
 - **Core Narrative:** Addresses situational awareness during complete optical blackout (dense smoke, atmospheric dust storm, zero-lux eclipse, or privacy-restricted quarters).
 - **Visuals:** Simulated optical blackout using Koschmieder's physical atmospheric extinction law ($I(d) = I_0 e^{-\beta d}$). At $t = 4.0\text{s}..7.0\text{s}$, aerosol dispersion increases extinction from $\beta = 0.005\text{ m}^{-1}$ to $\beta = 0.85\text{ m}^{-1}$, plunging optical visibility to $3.5\text{m}$. Optical cameras drop to zero confidence. Instantly, the Wi-Fi 6 CSI Doppler mesh takes over, continuously tracking the occupant while streaming real-time respiration ($16.2\text{ RPM}$) and heart rate ($71.8\text{ BPM}$) scalar curves. At $t = 8.0\text{s}$, a 3D directional acoustic cone pinpoints doorway transit footsteps.
 - **CLI Command:**

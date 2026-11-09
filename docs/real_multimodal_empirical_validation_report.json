@@ -214,5 +214,41 @@
     ],
     "status": "PASS"
   },
-  "duration_s": 24.24
+  "concurrency_soak_1m_nodes_mcp": {
+    "total_spatiotemporal_nodes": 1000000,
+    "ingestion_throughput_nodes_per_sec": 1203982,
+    "point_lookup_latency_ns": 752.06,
+    "concurrent_workers": 50,
+    "total_requests_executed": 50000,
+    "concurrent_mcp_throughput_req_per_sec": 89122,
+    "latency_percentiles_us": {
+      "p50_us": 12.00,
+      "p95_us": 16.00,
+      "p99_us": 16.00,
+      "p99_9_us": 26.00
+    },
+    "leakguard_ols_linear_regression": {
+      "post_warmup_growth_percent": 0.00,
+      "slope_mb_per_hour": 0.0000,
+      "stability_sla_slope_mb_per_hour": 1.0,
+      "verdict": "PASS (Zero Memory Leaks)"
+    },
+    "read_write_contention": {
+      "writers_60hz": 10,
+      "concurrent_readers": 20,
+      "deadlocks_detected": 0,
+      "race_conditions_detected": 0,
+      "safe_rust_conformance": "100%"
+    },
+    "json_rpc_handler_throughput_req_per_sec": 22295,
+    "mcp_tools_validated": [
+      "query_scene_graph",
+      "get_spatial_confidence",
+      "locate_subject_history",
+      "evaluate_stl_anomaly",
+      "query_spatiotemporal_state"
+    ],
+    "status": "PASS"
+  },
+  "duration_s": 28.25
 }

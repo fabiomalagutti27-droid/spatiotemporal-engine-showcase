@@ -3,9 +3,9 @@
 **Lead Systems Architect:** Fabio Malagutti  
 **Systems QA & Security Co-Architect:** Alessandro  
 **Publication Date:** November 2026  
-**Document Version:** 2.4.0 (Enterprise Architecture Whitepaper)  
-**Domain Application:** Mission-Critical Aerospace Systems, Autonomous Robotics & Space Situational Awareness  
-**Aerospace Standards Compliance:** ECSS-E-ST-40C (Software Engineering), ECSS-Q-ST-80C (Software Product Assurance Category A/B)
+**Document Version:** 2.5.0 (Enterprise Architecture Whitepaper)  
+**Domain Application:** Industrial Edge AI, Autonomous Robotics & Spatial Digital Twins  
+**Security & Reliability Assurance:** NIST SP 800-218 (SSDF), NIST SP 800-161 (C-SCRM), Zero-Panic Rust 2024 Design
 
 ---
 
@@ -151,7 +151,7 @@ sequenceDiagram
 | **Transport Layer** | HTTP/1.1 REST + JSON | HTTP/2 or WebSockets | In-Process Direct Function Dispatch | **Zero network serialization** |
 | **Response Latency** | $450\text{ ms}$ | $45\text{ ms}$ | **$0.028\text{ ms}$ ($28\ \mu\text{s}$)** | **$1600\times$ faster** |
 | **Prompt Token Payload** | $4,200\text{ tokens}$ | $1,250\text{ tokens}$ | **$142\text{ tokens}$** | **$96.6\%$ token reduction** |
-| **Evaluation Determinism** | Stochastic | Stochastic | **100% Deterministic (ECSS-Q-ST-80C)** | **Safety-Critical Qualified** |
+| **Evaluation Determinism** | Stochastic | Stochastic | **100% Deterministic (Zero-Panic Rust)** | **Safety-Critical Qualified** |
 
 ---
 
@@ -173,17 +173,17 @@ To demonstrate true platform independence and scalability, empirical benchmarks 
 
 ---
 
-## 6. Mission-Critical Aerospace & Space Systems Applicability
+## 6. Mission-Critical Industrial Edge Automation & Critical Infrastructure Monitoring
 
-The architecture directly addresses mission-critical technical challenges across core space engineering domains:
+The architecture directly addresses mission-critical technical challenges across industrial manufacturing, robotics, and critical physical infrastructure:
 
-### 6.1 Ground Segment Operations & Space Situational Awareness (SSA)
-- **Multi-Sensor Correlation:** The mathematical problem of maintaining tracklet invariance across disjoint camera frustums is functionally isomorphic to correlating multi-station optical telescope observations with phased-array radar tracks for orbital space debris tracking.
-- **Telemetry Stream Throughput:** The engine's capacity to process $\ge 480\text{ FPS}$ at sub-millisecond latencies provides a natural fit for high-throughput space mission telemetry streams.
+### 6.1 Industrial Digital Twins & Multi-Sensor Plant Monitoring
+- **Multi-Sensor Correlation:** The mathematical problem of maintaining tracklet invariance across disjoint camera frustums is functionally isomorphic to correlating multi-camera optical networks, automated guided vehicles (AGV/AMR), and radio-frequency IoT gateways in complex logistics hubs and manufacturing plants.
+- **Continuous Zero-Loss Throughput:** The engine's capacity to process $\ge 480\text{ FPS}$ at sub-millisecond latencies provides a natural fit for high-density production lines, automated quality inspection, and perimeter intrusion surveillance without dropping frames.
 
-### 6.2 Flight Software Systems & Autonomous Habitat Robotics
-- **Rust in Space & Formal Assurance:** The pure Rust implementation with **Zero `.unwrap()` / Zero `.expect()`** satisfies the strict software product assurance requirements of **ECSS-E-ST-40C** and **ECSS-Q-ST-80C** Category A/B flight systems.
-- **Extreme Resource Efficiency:** Operating with a peak footprint of $22.4\text{ MiB}$ RSS RAM enables deployment on radiation-hardened spaceborne microprocessors (SPARC/LEON, ARM Cortex-R52, or RISC-V) for autonomous rover navigation, intra-vehicular habitat monitoring, and proximity operations.
+### 6.2 Autonomous Robotics & Edge Safety Assurance
+- **Memory-Safe Industrial Operations:** The pure Rust implementation with **Zero `.unwrap()` / Zero `.expect()`** in production code paths eliminates runtime crashes, segfaults, and undefined behaviors, satisfying the most stringent industrial safety and supply chain requirements (**NIST SP 800-218**, **NIST SP 800-161**).
+- **Extreme Resource Efficiency:** Operating with a peak footprint of $22.4\text{ MiB}$ RSS RAM enables seamless edge deployment on compact low-power industrial microprocessors (ARM64, Apple Silicon, embedded x86, NVIDIA Jetson) for autonomous mobile robot navigation, hazardous area monitoring, and energy-constrained edge appliances.
 
 ---
 
@@ -191,5 +191,5 @@ The architecture directly addresses mission-critical technical challenges across
 
 The Spatiotemporal Semantic MCP Engine establishes that extreme computational efficiency, rigorous mathematical geometry, and high-level agentic physical intelligence can be unified within a single, memory-safe Rust architecture. 
 
-Demonstration reels, pre-recorded 3D Rerun `.rrd` sessions, and public schema specifications are maintained in the open-access satellite showcase repository:  
+Demonstration reels, pre-recorded 3D Rerun `.rrd` sessions, and public schema specifications are maintained in the open-access public showcase repository:  
 `https://github.com/fabiomalagutti27-droid/spatiotemporal-engine-showcase`

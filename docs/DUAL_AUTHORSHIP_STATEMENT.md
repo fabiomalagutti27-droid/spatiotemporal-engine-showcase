@@ -57,7 +57,7 @@ Developed as a private high-technology R&D initiative in memory-safe systems pro
    The underlying 16-crate Rust source code, build harnesses, and internal training scripts remain the proprietary intellectual property of the authors. All commercial rights are reserved.
 
 2. **Public Showcase Repository Authorization:**  
-   The authors have jointly authorized the public distribution of technical whitepapers, architectural Mermaid diagrams, formal JSON schemas, certified benchmark matrices, pre-recorded 3D Rerun `.rrd` telemetry sessions, and demonstration videos within the public satellite showcase repository:  
+   The authors have jointly authorized the public distribution of technical whitepapers, architectural Mermaid diagrams, formal JSON schemas, certified benchmark matrices, pre-recorded 3D Rerun `.rrd` telemetry sessions, and demonstration videos within the public technical showcase repository:  
    `https://github.com/fabiomalagutti27-droid/spatiotemporal-engine-showcase`.
 
 3. **Institutional & Recruitment Review Protocol:**  

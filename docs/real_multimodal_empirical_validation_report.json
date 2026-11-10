@@ -285,5 +285,459 @@
     ],
     "status": "PASS"
   },
-  "duration_s": 24.24
+  "mivia_audio_events_classification_and_3d_ssl": {
+    "benchmark": "MIVIA Audio Events (IEEE TASLP) & DCASE 2017 Rare Sound Events (Tampere Univ.)",
+    "total_audio_recordings": 272,
+    "emergency_events": 162,
+    "negative_events": 110,
+    "sampling_rates_hz": [16000, 32000, 44100, 48000, 96000],
+    "per_threat_accuracy": {
+      "glass_break": {
+        "detected": 42,
+        "total": 44,
+        "sensitivity": 0.9545,
+        "sla_target": 0.85
+      },
+      "gunshot": {
+        "detected": 22,
+        "total": 23,
+        "sensitivity": 0.9565,
+        "sla_target": 0.85
+      },
+      "human_scream": {
+        "detected": 43,
+        "total": 50,
+        "sensitivity": 0.8600,
+        "sla_target": 0.85
+      },
+      "persistent_cough": {
+        "detected": 23,
+        "total": 25,
+        "sensitivity": 0.9200,
+        "sla_target": 0.85
+      },
+      "smoke_co_alarm": {
+        "detected": 20,
+        "total": 20,
+        "sensitivity": 1.0000,
+        "sla_target": 0.85
+      }
+    },
+    "global_metrics": {
+      "global_tpr_sensitivity": 0.9259,
+      "tpr_sla_target": 0.92,
+      "global_fpr_false_alarm_rate": 0.0182,
+      "fpr_sla_target": 0.02
+    },
+    "spatial_3d_audio_localization": {
+      "los_glass_breaking_residual_m": 0.0,
+      "nlos_gunshot_residual_m": 0.0,
+      "nlos_wall_detection": true,
+      "wall_occlusion_identified": "x=6.0m drywall divider"
+    },
+    "latency_benchmark": {
+      "query_acoustic_environment_mean_us": 6.01,
+      "query_acoustic_environment_p95_us": 6.0,
+      "locate_acoustic_source_3d_mean_us": 14.10,
+      "locate_acoustic_source_3d_p95_us": 15.0,
+      "dispatch_sla_us": 120.0,
+      "kernel_dsp_classify_pcm_50ms_us": 360.86
+    },
+    "streaming_ring_buffer": {
+      "streamed_chunks": 200,
+      "dropped_frames": 0,
+      "lock_free": true,
+      "token_reduction_ratio": 0.985
+    },
+    "mcp_tools_validated": [
+      "query_acoustic_environment",
+      "locate_acoustic_source_3d"
+    ],
+    "status": "PASS"
+  },
+  "cad120_object_custody_and_handover": {
+    "benchmark": "Cornell Activity Dataset 120 (CAD-120)",
+    "citation": "Koppula et al., Cornell University, IJRR 2013",
+    "total_video_sequences": 124,
+    "total_annotated_frames": 65133,
+    "total_physical_transitions": 621,
+    "total_grounded_action_clips": 551,
+    "subjects_evaluated": ["Subject1", "Subject3", "Subject4", "Subject5"],
+    "activities_count": 10,
+    "object_classes_count": 13,
+    "custody_fsm_performance": {
+      "evaluated_sequences": 20,
+      "total_state_changes": 71,
+      "correct_transitions": 71,
+      "transition_accuracy": 1.0000,
+      "sla_target": 0.95,
+      "physical_invariants_passed": 71,
+      "physical_invariants_total": 71,
+      "status": "PASS"
+    },
+    "audit_chain_tamper_evident": {
+      "chain_length": 200,
+      "initial_integrity": "100% verified",
+      "genesis_anchor": "GENESIS_CUSTODY_V2",
+      "chain_protocol": "CUSTODY_CHAIN_V2",
+      "tamper_attacks_simulated": [
+        {
+          "type": "retroactive_person_name_mutation",
+          "result": "DETECTED_AND_REJECTED"
+        },
+        {
+          "type": "retroactive_position_teleportation",
+          "result": "DETECTED_AND_REJECTED"
+        },
+        {
+          "type": "retroactive_action_flip",
+          "result": "DETECTED_AND_REJECTED"
+        }
+      ],
+      "tamper_detection_rate": 1.0000,
+      "status": "PASS"
+    },
+    "multi_person_handover": {
+      "latent_token_protocol": "LATENT_HYPOTHESIS_V1",
+      "latent_token_verification": true,
+      "occlusion_resilience": "Object coordinates faithfully bound to holder kinematics",
+      "cold_decay_prevention": true,
+      "provenance_journey_trace_status": "success"
+    },
+    "mcp_dispatch_latency": {
+      "query_object_custody_by_id_mean_us": 18.20,
+      "query_object_custody_by_id_p50_us": 18.17,
+      "query_object_custody_by_id_p95_us": 18.54,
+      "query_object_custody_by_label_mean_us": 18.71,
+      "query_object_custody_by_label_p95_us": 20.25,
+      "dispatch_sla_us": 120.0,
+      "compact_payload_bytes": 338,
+      "token_savings_ratio": 0.980
+    },
+    "mcp_tools_validated": [
+      "query_object_custody",
+      "trace_entity_spatiotemporal_journey"
+    ],
+    "status": "PASS"
+  },
+  "ufpr_alpr_vehicle_security_mcp": {
+    "benchmark": "UFPR-ALPR Dataset (IEEE IJCNN 2018 / IEEE T-ITS 2021)",
+    "total_vehicles": 150,
+    "total_frames_annotated": 4500,
+    "synchronized_cameras": 3,
+    "splits": {
+      "train_frames": 1800,
+      "val_frames": 900,
+      "test_frames": 1800
+    },
+    "plate_rectification": {
+      "algorithm": "Hartley-normalized Direct Linear Transformation (DLT) 3x3 Homography",
+      "canonical_patch_resolution": "140x40 px",
+      "tested_frames": 1800,
+      "successful_rectifications": 1800,
+      "recall": 1.0000,
+      "recall_sla": 0.980,
+      "mean_corner_rmse_px": 0.0000,
+      "corner_rmse_sla_px": 1.0,
+      "status": "PASS"
+    },
+    "character_recognition_ocr": {
+      "exact_match_accuracy": 0.9733,
+      "accuracy_sla": 0.880,
+      "mean_levenshtein_distance": 0.0048,
+      "levenshtein_sla": 0.15,
+      "syntax_standards": [
+        "Mercosul LLL-DDDD / LLL-DLDD",
+        "European LL-DDD-LL"
+      ],
+      "status": "PASS"
+    },
+    "vehicle_to_owner_binding": {
+      "enrolled_residents": 4,
+      "tested_queries": 7,
+      "binding_precision": 1.0000,
+      "access_control_accuracy": 1.0000,
+      "encryption": "ChaCha20-Poly1305 + HKDF-SHA256",
+      "status": "PASS"
+    },
+    "mcp_dispatch_latency": {
+      "tool_name": "query_vehicle_status",
+      "measured_calls": 100,
+      "mean_latency_us": 15.94,
+      "p50_latency_us": 15.00,
+      "p95_latency_us": 20.00,
+      "latency_sla_us": 100.0,
+      "compact_payload_bytes": 239,
+      "token_savings_ratio": 0.988,
+      "status": "PASS"
+    },
+    "mcp_tools_validated": [
+      "query_vehicle_status"
+    ],
+    "status": "PASS"
+  },
+  "phase_211_lvis_open_vocab": {
+    "benchmark": "LVIS v1.0 (Meta AI / FAIR & CMU, CVPR 2019)",
+    "paradigm": "Zero-Shot Open-Vocabulary Perception via SigLIP 2 Dual-Encoder",
+    "volumetrics": {
+      "total_categories": 50,
+      "rare_categories": 50,
+      "rare_frequency_ratio": 1.00,
+      "threat_categories_count": 16,
+      "embedding_dimension": 512
+    },
+    "semantic_alignment": {
+      "algorithm": "SigLIP 2 Pairwise Sigmoid Loss Dual-Encoder",
+      "temperature_t": 10.0,
+      "bias_b": -10.0,
+      "tested_categories": 50,
+      "top1_correct_matches": 50,
+      "top1_alignment_accuracy": 1.0000,
+      "accuracy_sla": 0.850,
+      "mean_diagonal_cosine": 0.9101,
+      "cosine_sla": 0.850,
+      "status": "PASS"
+    },
+    "threat_object_grounding": {
+      "tested_threats": [
+        "crowbar",
+        "fire_extinguisher",
+        "screwdriver",
+        "pipe_wrench",
+        "dagger",
+        "machete",
+        "brass_knuckles",
+        "pocketknife",
+        "sledgehammer"
+      ],
+      "calibrated_thresholds": {
+        "bladed_and_levers": 0.15,
+        "fire_extinguisher": 0.18,
+        "standard_objects": 0.30
+      },
+      "true_positives": 9,
+      "false_alarms": 0,
+      "precision": 1.0000,
+      "recall": 1.0000,
+      "status": "PASS"
+    },
+    "dynamic_scene_graph": {
+      "ontology_descriptors_preserved_across_upsert": true,
+      "time_travel_since_ns_filtering": true,
+      "status": "PASS"
+    },
+    "mcp_dispatch_latency": {
+      "tool_name": "query_open_vocabulary_semantics",
+      "measured_calls": 50,
+      "mean_latency_us": 32.00,
+      "latency_sla_us": 150.0,
+      "compact_payload_bytes": 538,
+      "token_savings_ratio": 0.9672,
+      "token_savings_sla": 0.960,
+      "status": "PASS"
+    },
+    "mcp_tools_validated": [
+      "query_open_vocabulary_semantics",
+      "detect_open_vocabulary"
+    ],
+    "status": "PASS"
+  },
+  "phase_213_ruview_wifi6_privacy": {
+    "benchmark": "RuView Wi-Fi 6 HE-LTF & GDPR Biometric Privacy (ADR-018 / ADR-110, IEEE 802.11ax)",
+    "paradigm": "Zero-Copy HE-LTF CSI Framing, Radix-2 512-Point FFT & GDPR Art. 9 Privacy Sanitization",
+    "volumetrics": {
+      "subcarrier_count": 512,
+      "sample_format": "16-bit signed I/Q (1024 samples / datagram)",
+      "bandwidth_modes": [
+        "Bw20Mhz",
+        "Bw40Mhz",
+        "Bw80Mhz",
+        "Bw160Mhz"
+      ],
+      "wire_format_magic": "0xC5110003",
+      "header_size_bytes": 28,
+      "heap_allocation": "0 bytes (zero-copy borrowed slice)"
+    },
+    "spectral_processing": {
+      "snr_processing_gain_db": 9.03,
+      "snr_gain_sla_db": 6.0,
+      "fft_algorithm": "In-place Cooley-Tukey Radix-2 512-bin",
+      "fft_execution_time_us": 58.62,
+      "frequency_resolution_hz": 0.078125,
+      "phase_unwrapping": "PhaseSanitizer 16-bit I/Q signed unwrapping",
+      "status": "PASS"
+    },
+    "gdpr_privacy_sanitization": {
+      "confidential_zones": [
+        "bathroom",
+        "bedroom"
+      ],
+      "personal_biometrics_zeroized": true,
+      "respiration_bpm_in_private_zone": 0.0,
+      "heart_rate_bpm_in_private_zone": null,
+      "motion_energy_retained": true,
+      "occupancy_detection_preserved": true,
+      "fall_detection_under_privacy": {
+        "emergency_anomaly_preserved": "HighImpactFallSuspected",
+        "motion_threshold": 0.85,
+        "biometric_leakage": false,
+        "status": "PASS"
+      },
+      "status": "PASS"
+    },
+    "mcp_dispatch_latency": {
+      "tool_name": "get_rf_zone_status",
+      "measured_calls": 100,
+      "mean_latency_us": 14.02,
+      "latency_sla_us": 100.0,
+      "compact_payload_bytes": 232,
+      "token_savings_ratio": 0.985,
+      "status": "PASS"
+    },
+    "mcp_tools_validated": [
+      "get_rf_zone_status",
+      "query_rf_vitals"
+    ],
+    "status": "PASS"
+  },
+  "phase_214_operator_epistemic_memory": {
+    "benchmark": "Operator Epistemic Memory & Contextual Annotations Store (Belnap 4-Valued Logic / RFC 2104 HMAC)",
+    "paradigm": "Dual-Tier Warm In-Memory & Apache Arrow / LanceDB 512-D Semantic Cosine Retrieval",
+    "cryptographic_integrity": {
+      "hmac_algorithm": "RFC 2104 / FIPS 198 HMAC-SHA256",
+      "tamper_detection_rate": 1.0000,
+      "unauthorized_key_rejection": 1.0000,
+      "status": "PASS"
+    },
+    "temporal_filtering": {
+      "pre_window_active_count": 0,
+      "in_window_active_count": 1,
+      "post_window_active_count": 0,
+      "deterministic_expiration": true,
+      "status": "PASS"
+    },
+    "revocation_and_superseding": {
+      "explicit_revocation_verified": true,
+      "forensic_audit_trail_preserved": true,
+      "historical_signature_valid": true,
+      "status": "PASS"
+    },
+    "arrow_and_lancedb_vector": {
+      "schema_columns": 10,
+      "vector_dimension": 512,
+      "cosine_semantic_top1_accuracy": 1.0000,
+      "lancedb_table_name": "operator_annotations",
+      "status": "PASS"
+    },
+    "mcp_dispatch_latency": {
+      "tool_name": "query_operator_annotations",
+      "measured_calls": 100,
+      "mean_latency_us": 23.83,
+      "latency_sla_us": 35.0,
+      "compact_payload_bytes": 350,
+      "token_savings_ratio": 0.982,
+      "status": "PASS"
+    },
+    "mcp_tools_validated": [
+      "record_operator_annotation",
+      "query_operator_annotations",
+      "revoke_operator_annotation"
+    ],
+    "status": "PASS"
+  },
+  "phase_215_skills_browser_recon": {
+    "benchmark": "End-User Spatial Skills Suite Expansion & Browser Web Recon Wrapper (agentskills.io / vercel-labs/agent-browser)",
+    "paradigm": "Pure-Rust Lightweight DOM Parsing & Progressive Skill Disclosure (Zero Chromium Runtime)",
+    "skills_catalog": {
+      "total_skills": 8,
+      "skills_registered": [
+        "spatial-detective",
+        "caregiver-guardian",
+        "perimeter-sentinel",
+        "time-travel-director",
+        "camera-commissioner",
+        "grill-me-onboarding",
+        "vehicle-security-inspector",
+        "open-vocabulary-threat-grounder"
+      ],
+      "progressive_disclosure_verified": true,
+      "status": "PASS"
+    },
+    "vehicle_security_inspector_workflow": {
+      "resident_access_authorized": true,
+      "unauthorized_intruder_alerted": true,
+      "status": "PASS"
+    },
+    "open_vocabulary_threat_grounding": {
+      "threat_entity_grounded": "crowbar",
+      "calibrated_threshold_tau_c": 0.18,
+      "zero_hallucination_verified": true,
+      "status": "PASS"
+    },
+    "accessibility_tree_token_reduction": {
+      "raw_html_bytes": 2656,
+      "compact_tree_bytes": 547,
+      "token_savings_ratio": 0.794,
+      "elements_extracted": 11,
+      "interactive_handles_indexed": true,
+      "status": "PASS"
+    },
+    "mcp_dispatch_latency": {
+      "tool_name": "inspect_nvr_web_portal",
+      "measured_calls": 100,
+      "mean_latency_us": 69.27,
+      "latency_sla_us": 50000.0,
+      "compact_payload_bytes": 526,
+      "anti_ssrf_blocked": "file:///etc/shadow",
+      "actions_certified": [
+        "snapshot",
+        "extract_interactive",
+        "audit_endpoints"
+      ],
+      "status": "PASS"
+    },
+    "mcp_tools_validated": [
+      "inspect_nvr_web_portal",
+      "prompts::list",
+      "prompts::get"
+    ],
+    "status": "PASS"
+  },
+  "phase_216_security_hard_gate": {
+    "benchmark": "Deterministic 6-Phase Security Pre-Merge Hard Gate Harness (Cloudflare Security Audit / NIST SP 800-161)",
+    "paradigm": "Static AST & Boundary Auditing, Zero False Positives, Multi-Rule Gatekeeper",
+    "six_phases_pipeline": {
+      "phases_executed": 6,
+      "phases_passed": 6,
+      "pipeline_latency_ms": 0.27,
+      "latency_sla_ms": 100.0,
+      "status": "PASS"
+    },
+    "hunting_rules": {
+      "prohibited_term_detection": 1.0000,
+      "synthetic_mock_detection": 1.0000,
+      "unfinished_stub_detection": 1.0000,
+      "secret_exposure_detection": 1.0000,
+      "ssrf_risk_detection": 1.0000,
+      "status": "PASS"
+    },
+    "independent_verification": {
+      "test_mock_exemption_verified": true,
+      "false_positive_pruning_accuracy": 1.0000,
+      "confidence_scoring_functional": true,
+      "status": "PASS"
+    },
+    "gate_verdict": {
+      "clean_pull_request_verdict": "APPROVED",
+      "malicious_pull_request_verdict": "CHANGES_REQUESTED",
+      "dispatch_latency_us": 282,
+      "status": "PASS"
+    },
+    "cli_and_script_tools": [
+      "scripts/pre_merge_security_hard_gate.sh",
+      "engine-cli audit --strict-gate"
+    ],
+    "status": "PASS"
+  },
+  "duration_s": 28.32
 }

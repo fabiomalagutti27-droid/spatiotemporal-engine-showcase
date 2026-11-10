@@ -121,7 +121,7 @@ rerun target/showcase/showcase_45s.rrd
 1. **Master Presentation Video (`showcase_45s.mp4`):**
    - Container: MP4 (H.264 / H.265).
    - Resolution: 1920x1080 Full HD @ 60 FPS.
-   - Purpose: Academic defense, aerospace technical presentations, conference slides.
+   - Purpose: Academic defense, industrial and robotics technical presentations, conference slides.
 2. **GitHub README Showcase Animation (`showcase_45s.gif`):**
    - Palette Optimization: Two-pass Lanczos with 128-color adaptive palette.
    - Resolution: Scaled 960x540 @ 15 FPS.

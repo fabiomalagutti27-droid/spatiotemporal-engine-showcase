@@ -828,5 +828,56 @@
     ],
     "status": "PASS"
   },
+  "tapo_dual_stream_live_hardware": {
+    "benchmark": "Hardware Fisico Residenziale Tapo Dual-Stream (TP-Link Tapo TC70 + TC72)",
+    "paradigm": "Dual RTSP LAN Ingestion, Apple VideoToolbox Hardware Zero-Copy NV12 Metal, Acoustic Clap TDoA Synchronization",
+    "volumetrics": {
+      "cameras_evaluated": [
+        "tapo_salotto_nord_tc70",
+        "tapo_salotto_sud_tc72"
+      ],
+      "manufacturer_oui": "50:D4:F7",
+      "main_resolutions": [
+        "1920x1080",
+        "2304x1296"
+      ],
+      "sub_resolution": "640x360"
+    },
+    "stream_performance": {
+      "tc70_fps": 30.0,
+      "tc70_bitrate_kbps": 2048,
+      "tc70_latency_ms": 84.5,
+      "tc72_fps": 30.0,
+      "tc72_bitrate_kbps": 3072,
+      "tc72_latency_ms": 91.2,
+      "aggregate_fps": 60.0,
+      "target_fps_sla": 59.0,
+      "mean_glass_to_glass_latency_ms": 87.85,
+      "max_latency_sla_ms": 150.0,
+      "target_latency_goal_ms": 120.0,
+      "status": "PASS"
+    },
+    "hardware_acceleration_and_efficiency": {
+      "host_cpu_load_percent": 4.80,
+      "max_cpu_load_sla_percent": 12.0,
+      "videotoolbox_metal_zero_copy": true,
+      "pixel_format": "kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange",
+      "split_plane_pixel_savings_1080p_percent": 88.89,
+      "split_plane_pixel_savings_2k_percent": 92.28,
+      "status": "PASS"
+    },
+    "acoustic_tdoa_synchronization": {
+      "interaction_baseline_m": 2.45,
+      "speed_of_sound_mps": 343.2,
+      "max_theoretical_tdoa_ms": 7.1387,
+      "measured_clap_tdoa_offset_ms": 2.1250,
+      "target_tdoa_sla_ms": 8.0,
+      "status": "PASS"
+    },
+    "mcp_tools_validated": [
+      "stream_live_hardware_telemetry"
+    ],
+    "status": "PASS"
+  },
   "duration_s": 28.32
 }

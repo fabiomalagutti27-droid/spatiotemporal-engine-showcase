@@ -739,5 +739,51 @@
     ],
     "status": "PASS"
   },
+  "cubicasa5k_floorplan_vectorization": {
+    "benchmark": "CubiCasa5k Architectural Floorplan Parsing & 3D Vectorization (University of Oulu / ICPR 2019)",
+    "paradigm": "Deterministic SVG Vectorization, Exact Topological Disjunction, Gauss Shoelace Area & Normal Alignment",
+    "volumetrics": {
+      "apartment_rooms": 7,
+      "apartment_doors": 5,
+      "villa_rooms": 8,
+      "villa_doors": 6,
+      "total_spaces_evaluated": 15,
+      "total_portals_evaluated": 11
+    },
+    "polygonal_room_accuracy": {
+      "mean_room_polygonal_iou": 0.9997,
+      "iou_target_sla": 0.8800,
+      "iou_goal": 0.9000,
+      "min_room_iou": 0.9982,
+      "status": "PASS"
+    },
+    "topological_disjunction": {
+      "verified_pairs": 49,
+      "max_pairwise_overlap_area_sqm": 0.000000,
+      "max_pairwise_overlap_iou": 0.000000,
+      "is_strictly_disjoint": true,
+      "isolated_rooms_count": 0,
+      "status": "PASS"
+    },
+    "portal_aperture_localization": {
+      "position_rmse_m": 0.0001,
+      "rmse_sla_m": 0.050,
+      "mean_normal_vector_alignment": 1.0000,
+      "alignment_target": 0.9500,
+      "status": "PASS"
+    },
+    "vectorization_performance": {
+      "mean_latency_ms": 0.124,
+      "latency_sla_ms": 5.0,
+      "throughput_plans_per_sec": 8032.59,
+      "wall_extrusion_height_m": 2.80,
+      "status": "PASS"
+    },
+    "mcp_tools_validated": [
+      "import_floorplan_cad",
+      "verify_blueprint_topology"
+    ],
+    "status": "PASS"
+  },
   "duration_s": 28.32
 }

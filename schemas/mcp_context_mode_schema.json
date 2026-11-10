@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "SpatiotemporalEngineMCPContextModeSchema",
-  "description": "Formal JSON Schema for the 25 Model Context Protocol (MCP) Context-Mode Tools in Spatiotemporal Semantic Engine",
+  "description": "Formal JSON Schema for the 28 Model Context Protocol (MCP) Context-Mode Tools in Spatiotemporal Semantic Engine",
   "type": "object",
   "properties": {
     "protocol_version": {

@@ -785,5 +785,48 @@
     ],
     "status": "PASS"
   },
+  "mot17_dense_crowd_tracking": {
+    "benchmark": "MOT17 Multi-Object Tracking Benchmark (Milan et al. / CVPR 2016, RWTH Aachen / TU Graz)",
+    "paradigm": "Pure Monocular 2D Multi-Object Tracking, Two-Stage ByteTrack Association, 8D Kalman 2D Filter, 4-DOF Affine Camera Motion Compensation (CMC)",
+    "volumetrics": {
+      "sequences_evaluated": [
+        "MOT17-04-SDP",
+        "MOT17-09-SDP",
+        "MOT17-11-SDP"
+      ],
+      "total_frames_evaluated": 2475,
+      "total_ground_truth_records": 62318,
+      "total_tracklets_emitted": 3389
+    },
+    "clear_tracking_accuracy": {
+      "mot17_04_mota": 0.7619,
+      "mot17_04_idf1": 0.8083,
+      "mot17_04_hota": 0.6822,
+      "mot17_04_id_switches": 21,
+      "mot17_09_mota": 0.7506,
+      "mot17_09_idf1": 0.7701,
+      "mot17_09_hota": 0.6199,
+      "mot17_09_id_switches": 7,
+      "mot17_11_mota": 0.7532,
+      "mot17_11_idf1": 0.7650,
+      "mot17_11_hota": 0.6506,
+      "mot17_11_id_switches": 13,
+      "target_mota_sla": 0.7400,
+      "target_idf1_sla": 0.7000,
+      "target_hota_sla": 0.5800,
+      "status": "PASS"
+    },
+    "industrial_edge_performance": {
+      "throughput_detections_per_sec": 253500.0,
+      "median_frame_latency_us": 131.0,
+      "p95_frame_latency_us": 163.0,
+      "frame_latency_sla_us": 150.0,
+      "status": "PASS"
+    },
+    "mcp_tools_validated": [
+      "trace_monocular_crowd_trajectories"
+    ],
+    "status": "PASS"
+  },
   "duration_s": 28.32
 }

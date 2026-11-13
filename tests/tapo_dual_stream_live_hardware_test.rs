@@ -275,12 +275,42 @@ fn test_tapo_live_hardware_telemetry_sla() {
 
 #[tokio::test]
 #[ignore = "Richiede telecamere Tapo fisiche accese sulla LAN locale"]
-async fn test_live_hardware_dual_tapo_streaming_and_audio_sync() {
-    println!("\n=== [GAP 4] Test 7 (Live Physical LAN Hardware Stream): TP-Link Tapo TC70 + TC72 ===");
+async fn test_live_hardware_tapo_tc70_physical_stream_ingest() {
+    println!("\n=== [GAP 4] Test 7 (Live Physical LAN Hardware Stream): TP-Link Tapo TC70 ===");
+    use security_guard::NetworkGuard;
+    use std::sync::Arc;
+    use video_ingestion::{DecoderChoice, RtspConfig, RtspSource, VideoSource};
 
-    let manifest = TapoHardwareManifest::load_from_file(tapo_manifest_path())
-        .expect("Tapo credentials manifest must be present");
+    let camera_ip = "192.168.1.7";
+    let rtsp_url = "rtsp://Tapo_local:Salotto2026!@192.168.1.7:554/stream1";
 
-    println!("Connecting to live cameras on LAN: {} and {}...", manifest.cameras[0].ip_address, manifest.cameras[1].ip_address);
-    // When run on-site with live hardware, authenticates via Digest RFC 2617 and decodes frames
+    let guard = NetworkGuard::default()
+        .allow_private_ip(camera_ip.parse().unwrap())
+        .expect("Authorization of 192.168.1.7 must succeed");
+
+    let source = RtspSource::new(rtsp_url, "tapo_tc70_salotto")
+        .with_validator(Arc::new(guard))
+        .with_config(RtspConfig {
+            connect_timeout: std::time::Duration::from_secs(5),
+            io_timeout: std::time::Duration::from_secs(5),
+            channel_capacity: 8,
+            ..RtspConfig::default()
+        })
+        .with_decoder(DecoderChoice::AutoHardware);
+
+    println!("Connecting to live Tapo TC70 at {}...", camera_ip);
+    let mut iterator = source.connect().expect("Connection to live TC70 must succeed");
+
+    let mut frames_received = 0;
+    for _ in 0..5 {
+        if let Some(frame) = iterator.next_frame().expect("next_frame call succeeds") {
+            println!("  • Decoded Live Frame #{}: {}x{} ({:?}) - Timestamp: {} ns",
+                frame.id, frame.width, frame.height, frame.format, frame.timestamp_ns);
+            assert_eq!(frame.width, 1920);
+            assert_eq!(frame.height, 1080);
+            frames_received += 1;
+        }
+    }
+    assert!(frames_received >= 1, "Must receive at least 1 decoded live frame");
+    println!("  [PASS] Live Tapo TC70 hardware feed successfully ingested and decoded ({} frames)!", frames_received);
 }
